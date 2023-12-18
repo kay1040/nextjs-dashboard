@@ -4,12 +4,13 @@ import InvoiceStatus from '@/app/ui/invoices/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredInvoices } from '@/app/lib/data';
 
-interface Props {
-  query: string,
-  currentPage: number,
-}
-
-export default async function InvoicesTable({query, currentPage}: Props) {
+export default async function InvoicesTable({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) {
   // 取得自己內部資料使用 server component
   const invoices = await fetchFilteredInvoices(query, currentPage);
 
